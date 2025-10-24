@@ -1,8 +1,8 @@
-package src.Model;
+package Model;
 
 import java.util.ArrayList;
 
-public class estudiante {
+public class Estudiante {
     String nombre;
     int id;
     int grupo;
@@ -12,7 +12,7 @@ public class estudiante {
     int participacion;
     String comentarios;
 
-    public estudiante() {
+    public Estudiante() {
     }
 
     public float genPromedio(ArrayList<Float> notas) {
@@ -26,7 +26,7 @@ public class estudiante {
         return prom;
     }
 
-    public estudiante(String nombre, int id, ArrayList<Float> notas, int grupo, int asistencia, int participacion,
+    public Estudiante(String nombre, int id, ArrayList<Float> notas, int grupo, int asistencia, int participacion,
                       String comentarios) {
         this.nombre = nombre;
         this.id = id;

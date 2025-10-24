@@ -1,25 +1,26 @@
-package src.Logic;
+package Logic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import src.Model.estudiante
+import Model.Estudiante;
 
 
 public class RegistroEstudiante {
-    private ArrayList<List> Alumnos;
+    private ArrayList<Estudiante> alumnos;
 
     public void RegistroEstudiante() {
-        this.Alumnos = new ArrayList<>();
+        this.alumnos = new ArrayList<>();
 
     }
 
-    public void registrar(estudiante est){
-        Alumnos.add(est)
+    public void registrar(Estudiante est){
+        alumnos.add(est);
     }
-    public List<Alumnos> getEstudiantes() {
-        return Alumnos
+
+
+    public List<Estudiante> getEstudiantes() {
+        return alumnos;
     }
 
 }

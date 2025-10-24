@@ -1,19 +1,20 @@
-package src.Control;
+package Control;
 
-import src.Logic.registroEstudiante;
-import src.Model.estudiante;
+import Logic.RegistroEstudiante;
+import Model.Estudiante;
+import java.util.ArrayList;
 
-public class controlEstudiante {
-    private registroEstudiante registro;
+public class ControlEstudiante {
+    private RegistroEstudiante registro;
 
-    public controlEstudiante() {
+    public ControlEstudiante() {
 
-        this.registro = new registroEstudiante();
+        this.registro = new RegistroEstudiante();
     }
 
     public void registrarEstudiante(String nombre, int id, ArrayList<Float> notas, int grupo, int asistencia, int participacion, String comentarios) {
         try {
-            estudiante e = new estudiante(nombre, id, notas, grupo, asistencia, participacion, comentario);
+            Estudiante e = new Estudiante(nombre, id, notas, grupo, asistencia, participacion, comentarios);
             registro.registrar(e);
             System.out.println("Estudiante Registrado: " + e.getNombre());
 
@@ -23,7 +24,7 @@ public class controlEstudiante {
     }
 
     public void getEstudiantes(){
-        System.out.println(registro.getEstudiantes())
+        System.out.println(registro.getEstudiantes());
     }
 
 }
