@@ -68,7 +68,7 @@ public class Main {
 
         }
         entrada.close();
-        control.getEstudiantes();
+        control.generateJSONFile();
 
     }
 

@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.ArrayList;
 import Logic.RegistroEstudiante;
 import Model.Estudiante;
+import Logic.GenerateJSON;
 
 public class ControlEstudiantes {
     private RegistroEstudiante registro;
+    private String fileRoute = "data/estudiantes.json";
 
     public ControlEstudiantes() {
 
@@ -34,5 +36,15 @@ public class ControlEstudiantes {
                 System.out.println(e); // Esto llamará al toString()
             }
         }
+    }
+
+
+    public void elimnarEstudiantes(){
+        registro.getEstudiantes().clear();
+    }
+
+    public void generateJSONFile(){
+        String es = GenerateJSON.generateJSON(registro.getEstudiantes());
+        GenerateJSON.generateFile(fileRoute, es);
     }
 }

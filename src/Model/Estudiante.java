@@ -1,19 +1,10 @@
 package Model;
 
 import java.util.ArrayList;
+import Model.TipoEstudiante;
 
-public class Estudiante {
-    String nombre;
-    int id;
-    int grupo;
-    ArrayList<Float> notas;
-    float promedio;
-    int asistencia;
-    int participacion;
-    String comentarios;
+public class Estudiante extends TipoEstudiante{
 
-    public Estudiante() {
-    }
 
     public float genPromedio(ArrayList<Float> notas) {
         float suma = 0f;
