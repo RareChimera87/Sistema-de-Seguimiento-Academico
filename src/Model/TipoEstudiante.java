@@ -1,14 +1,12 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class TipoEstudiante {
+public class TipoEstudiante{
     public String nombre;
     public int id;
     public int grupo;
-    public ArrayList<Float> notas;
-    public float promedio;
-    public int asistencia;
+    public List<TipoMateria> materias;
     public int participacion;
     public String comentarios;
 }

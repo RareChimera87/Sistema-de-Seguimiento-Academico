@@ -1,30 +1,17 @@
 package Model;
 
 import java.util.ArrayList;
-import Model.TipoEstudiante;
+import java.util.List;
 
 public class Estudiante extends TipoEstudiante{
 
 
-    public float genPromedio(ArrayList<Float> notas) {
-        float suma = 0f;
-        int cantidad = 0;
-        for (int i = 0; i < notas.size(); i++) {
-            suma = suma + notas.get(i);
-            cantidad += 1;
-        }
-        float prom = (float) (suma / cantidad);
-        return prom;
-    }
 
-    public Estudiante(String nombre, int id, ArrayList<Float> notas, int grupo, int asistencia, int participacion,
-                      String comentarios) {
+    public Estudiante(String nombre, int id, int grupo, List<TipoMateria> materias, int participacion, String comentarios) {
         this.nombre = nombre;
         this.id = id;
-        this.notas = notas;
-        this.promedio = genPromedio(notas);
         this.grupo = grupo;
-        this.asistencia = asistencia;
+        this.materias = materias;
         this.participacion = participacion;
         this.comentarios = comentarios;
 
@@ -42,17 +29,7 @@ public class Estudiante extends TipoEstudiante{
         return grupo;
     }
 
-    public ArrayList<Float> getNotas() {
-        return notas;
-    }
 
-    public float getPromedio() {
-        return promedio;
-    }
-
-    public int getAsistencia() {
-        return asistencia;
-    }
 
     public int getParticipacion() {
         return participacion;
@@ -68,9 +45,7 @@ public class Estudiante extends TipoEstudiante{
                 "\nNombre: " + nombre +
                 "\nID: " + id +
                 "\nGrupo: " + grupo +
-                "\nNotas: " + notas +
-                "\nPromedio: " + promedio +
-                "\nAsistencia: " + asistencia +
+                "\nMaterias: " + materias +
                 "\nParticipación: " + participacion +
                 "\nComentarios: " + comentarios +
                 "\n===================";
