@@ -71,4 +71,18 @@ public class Estudiante {
         return comentarios;
     }
 
+    @Override
+    public String toString() {
+        return "\n==== Estudiante ====" +
+                "\nNombre: " + nombre +
+                "\nID: " + id +
+                "\nGrupo: " + grupo +
+                "\nNotas: " + notas +
+                "\nPromedio: " + promedio +
+                "\nAsistencia: " + asistencia +
+                "\nParticipación: " + participacion +
+                "\nComentarios: " + comentarios +
+                "\n===================";
+    }
+
 }

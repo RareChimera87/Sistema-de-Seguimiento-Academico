@@ -2,12 +2,13 @@ package Control;
 
 import Logic.RegistroEstudiante;
 import Model.Estudiante;
+import java.util.List;
 import java.util.ArrayList;
 
-public class ControlEstudiante {
+public class ControlEstudiantes {
     private RegistroEstudiante registro;
 
-    public ControlEstudiante() {
+    public ControlEstudiantes() {
 
         this.registro = new RegistroEstudiante();
     }
@@ -24,7 +25,14 @@ public class ControlEstudiante {
     }
 
     public void getEstudiantes(){
-        System.out.println(registro.getEstudiantes());
+        List<Estudiante> estudiantes = registro.getEstudiantes();
+        if (estudiantes.isEmpty()) {
+            System.out.println("No hay estudiantes registrados.");
+        } else {
+            System.out.println("=== Lista de Estudiantes ===");
+            for (Estudiante e : estudiantes) {
+                System.out.println(e); // Esto llamará al toString()
+            }
+        }
     }
-
 }
