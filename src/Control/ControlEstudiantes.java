@@ -1,9 +1,9 @@
 package Control;
 
-import Logic.RegistroEstudiante;
-import Model.Estudiante;
 import java.util.List;
 import java.util.ArrayList;
+import Logic.RegistroEstudiante;
+import Model.Estudiante;
 
 public class ControlEstudiantes {
     private RegistroEstudiante registro;

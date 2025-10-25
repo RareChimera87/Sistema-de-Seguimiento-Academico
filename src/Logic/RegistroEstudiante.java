@@ -3,7 +3,6 @@ package Logic;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
-
 import Model.Estudiante;
 
 
@@ -23,5 +22,4 @@ public class RegistroEstudiante {
     public List<Estudiante> getEstudiantes() {
         return Collections.unmodifiableList(alumnos);
     }
-
 }
