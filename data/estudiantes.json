@@ -6,9 +6,10 @@
     "materias": [
       {
         "materia": "marth",
+        "valorMateria": 40,
         "notas": [
           5.0,
-          5.0
+          4.0
         ],
         "asistencia": [
           {
@@ -19,8 +20,9 @@
       },
       {
         "materia": "lo",
+        "valorMateria": 60,
         "notas": [
-          5.0,
+          1.0,
           5.0
         ],
         "asistencia": [
@@ -41,8 +43,24 @@
     "materias": [
       {
         "materia": "oo",
+        "valorMateria": 70,
         "notas": [
-          3.0
+          4.0,
+          5.0
+        ],
+        "asistencia": [
+          {
+            "asistencia": false,
+            "fecha": "Dec 12, 1212, 12:00:00 AM"
+          }
+        ]
+      },
+      {
+        "materia": "oo",
+        "valorMateria": 30,
+        "notas": [
+          3.0,
+          1.0
         ],
         "asistencia": [
           {
