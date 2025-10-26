@@ -16,13 +16,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        ControlEstudiantes control  = new ControlEstudiantes();
+        ControlEstudiantes control = new ControlEstudiantes();
         System.out.println("Bienvenido Al Sistema de Gestion de Estudiantes");
 
-        while(true){
+        while (true) {
             ArrayList<Double> notas = new ArrayList<>();
             ArrayList<TipoMateria> materias = new ArrayList<>();
-
 
 
             System.out.println("Ingrese el Nombre: ");
@@ -50,22 +49,22 @@ public class Main {
                 String nombreMateria = entrada.nextLine().toLowerCase();
                 ArrayList<TipoAsistencias> asis = new ArrayList<>();
 
-                System.out.println("Ingrese Asistencias para el estudiante "+ nombre + " en la materia " + nombreMateria + "(-1 para detenerse)");
+                System.out.println("Ingrese Asistencias para el estudiante " + nombre + " en la materia " + nombreMateria + "(-1 para detenerse)");
                 while (true) {
                     System.out.println("Ingrese fecha de la clase en formato dd/MM/yy: ");
                     String respuesta = entrada.nextLine().trim();
 
-                            try {
-                                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(respuesta);
-                                System.out.println(respuesta);
-                                System.out.println("Ingrese si la clase fue asistida (1 si fue asistida y 0 si no fue asistida): ");
-                                int asistio = entrada.nextInt();
-                                entrada.nextLine();
-                                TipoAsistencias nuevaAsistencia = TipoAsistencias.registrarAsistencia(asistio == 1, date);
-                                asis.add(nuevaAsistencia);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
+                    try {
+                        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(respuesta);
+                        System.out.println(respuesta);
+                        System.out.println("Ingrese si la clase fue asistida (1 si fue asistida y 0 si no fue asistida): ");
+                        int asistio = entrada.nextInt();
+                        entrada.nextLine();
+                        TipoAsistencias nuevaAsistencia = TipoAsistencias.registrarAsistencia(asistio == 1, date);
+                        asis.add(nuevaAsistencia);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
 
                     System.out.println("Insete cualquier tecla para seguir añadiendo asistencias o -1 para detenerse: ");
                     String rs = entrada.nextLine().trim();
@@ -74,13 +73,13 @@ public class Main {
                         if (decision == -1) {
                             break;
                         }
-                    } catch (NumberFormatException e) {}
-
+                    } catch (NumberFormatException e) {
+                    }
 
 
                 }
 
-                System.out.println("Ingrese notas para el estudiante "+ nombre + " en la materia " + nombreMateria + "(-1 para detenerse)");
+                System.out.println("Ingrese notas para el estudiante " + nombre + " en la materia " + nombreMateria + "(-1 para detenerse)");
                 while (true) {
                     System.out.println("Ingrese Nota (-1 para salir): ");
                     double nota = entrada.nextDouble();
@@ -99,9 +98,8 @@ public class Main {
                     if (decision == -1) {
                         break;
                     }
-                } catch (NumberFormatException e) {}
-
-
+                } catch (NumberFormatException e) {
+                }
 
 
             }
@@ -117,8 +115,8 @@ public class Main {
                 if (decision == -1) {
                     break;
                 }
-            } catch (NumberFormatException e) {}
-
+            } catch (NumberFormatException e) {
+            }
 
 
         }

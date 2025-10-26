@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class TipoEstudiante{
+public class TipoEstudiante {
     public String nombre;
     public int id;
     public int grupo;

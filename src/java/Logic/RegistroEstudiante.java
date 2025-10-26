@@ -18,8 +18,14 @@ public class RegistroEstudiante {
         alumnos.add(est);
     }
 
+    public void vaciar(){
+        alumnos.clear();
+    }
+
 
     public List<Estudiante> getEstudiantes() {
-        return Collections.unmodifiableList(alumnos);
+        List<Estudiante> alum = new ArrayList<>(this.alumnos);
+        vaciar();
+        return alum;
     }
 }

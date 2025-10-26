@@ -10,8 +10,8 @@ import Model.TipoAsistencias;
 import Model.TipoMateria;
 
 public class ControlEstudiantes {
-    private RegistroEstudiante registro;
-    private RegistroMateria materi;
+    private final RegistroEstudiante registro;
+    private final RegistroMateria materi;
     private String fileRoute = "data/estudiantes.json";
 
     public ControlEstudiantes() {
