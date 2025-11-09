@@ -18,6 +18,7 @@ public class ControlEstudiantes {
 
         this.registro = new RegistroEstudiante();
         this.materi = new RegistroMateria();
+
     }
 
     public void registrarEstudiante(String nombre, int id, List<TipoMateria> materias, int grupo, int participacion, String comentarios) {
@@ -62,8 +63,25 @@ public class ControlEstudiantes {
         registro.getEstudiantes().clear();
     }
 
+    public boolean existJson(){
+        return GenerateJSON.readJson(fileRoute);
+    }
+
     public void generateJSONFile(){
-        String es = GenerateJSON.generateJSON(registro.getEstudiantes());
-        GenerateJSON.generateFile(fileRoute, es);
+
+        // Obtener los estudiantes registrados en esta sesión
+        List<Estudiante> estudiantesNuevos = registro.getEstudiantes();
+
+        // Guardar en el archivo (se agregará a los existentes)
+        GenerateJSON.generateFile(fileRoute, estudiantesNuevos);
+
+        // Limpiar el registro temporal después de guardar
+        registro.getEstudiantes().clear();
+
+        // Limpiar las materias temporales
+        materi.getMaterias().clear();
+    }
+    public List<Estudiante> cargarEstudiantesDesdeJSON() {
+        return GenerateJSON.leerEstudiantes(fileRoute);
     }
 }

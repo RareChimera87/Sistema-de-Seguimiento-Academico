@@ -1,6 +1,7 @@
 
 package GUI;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Control.ControlEstudiantes;
+import Logic.GenerateJSON;
 import Model.TipoAsistencias;
 import Model.TipoMateria;
 
@@ -18,6 +20,7 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
         ControlEstudiantes control = new ControlEstudiantes();
         System.out.println("Bienvenido Al Sistema de Gestion de Estudiantes");
+        System.out.println(GenerateJSON.leerEstudiantes("data/estudiantes.json"));
 
         while (true) {
             ArrayList<Double> notas = new ArrayList<>();

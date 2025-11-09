@@ -9,4 +9,5 @@ public class TipoEstudiante {
     public List<TipoMateria> materias;
     public int participacion;
     public String comentarios;
+    public int creditos;
 }
