@@ -42,13 +42,10 @@ public class MainMenu extends JFrame {
         gbc.gridy = 1;
         panelCentral.add(btnRegistrar, gbc);
 
-        JButton btnIngresarNotas = crearBoton("Ingresar Notas de Estudiantes", tamañoBoton);
+        JButton btnGenerarGrafica = crearBoton("Generar graficas y reporte", tamañoBoton);
         gbc.gridy = 2;
-        panelCentral.add(btnIngresarNotas, gbc);
+        panelCentral.add(btnGenerarGrafica, gbc);
 
-        JButton btnVerEstudiante = crearBoton("Ver Información de Estudiante", tamañoBoton);
-        gbc.gridy = 3;
-        panelCentral.add(btnVerEstudiante, gbc);
 
         JButton btnListarEstudiantes = crearBoton("Listar Todos los Estudiantes", tamañoBoton);
         gbc.gridy = 4;
@@ -77,15 +74,11 @@ public class MainMenu extends JFrame {
             new RegistrarEstudiante(control);
         });
 
-        btnIngresarNotas.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Abriendo ingreso de notas...");
-            // Aquí abrirías la ventana de notas
+        btnGenerarGrafica.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Generando graficas...");
+            new GenerarGraficasVentana();
         });
 
-        btnVerEstudiante.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Abriendo búsqueda de estudiante...");
-            // Aquí abrirías la ventana de búsqueda
-        });
 
         btnListarEstudiantes.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Mostrando lista de estudiantes...");

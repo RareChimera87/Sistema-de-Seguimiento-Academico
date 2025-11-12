@@ -1,88 +1,92 @@
 [
   {
-    "nombre": "santiago",
+    "nombre": "paco",
     "id": 1,
     "grupo": 1,
     "materias": [
       {
-        "materia": "marth",
+        "materia": "matematicas",
         "notas": [
           5.0,
-          4.0
+          4.0,
+          3.0,
+          5.0,
+          1.0
         ],
         "asistencia": [
           {
             "asistencia": true,
-            "fecha": "Apr 23, 2025, 12:00:00 AM"
+            "fecha": "Nov 10, 2025, 12:00:00 AM"
+          },
+          {
+            "asistencia": false,
+            "fecha": "Nov 11, 2025, 12:00:00 AM"
+          },
+          {
+            "asistencia": true,
+            "fecha": "Nov 12, 2025, 12:00:00 AM"
           }
         ]
       },
       {
-        "materia": "lo",
+        "materia": "quimica",
         "notas": [
-          1.0,
           5.0
         ],
         "asistencia": [
           {
-            "asistencia": false,
-            "fecha": "Nov 23, 2324, 12:00:00 AM"
-          }
-        ]
-      },
-      {
-        "materia": "otra materias",
-        "notas": [
-          1.0,
-          1.0,
-          2.0
-        ],
-        "asistencia": [
-          {
             "asistencia": true,
-            "fecha": "Apr 23, 2008, 12:00:00 AM"
+            "fecha": "Nov 12, 2025, 12:00:00 AM"
           }
         ]
       }
     ],
     "participacion": 5,
-    "comentarios": "sabermas",
+    "comentarios": "podria mejorar",
     "creditos": 0
   },
   {
-    "nombre": "kl",
+    "nombre": "julian",
     "id": 2,
     "grupo": 2,
     "materias": [
       {
-        "materia": "oo",
+        "materia": "matematicas",
         "notas": [
-          4.0,
-          5.0
-        ],
-        "asistencia": [
-          {
-            "asistencia": false,
-            "fecha": "Dec 12, 1212, 12:00:00 AM"
-          }
-        ]
-      },
-      {
-        "materia": "oo",
-        "notas": [
-          3.0,
+          5.0,
+          5.0,
           1.0
         ],
         "asistencia": [
           {
             "asistencia": false,
-            "fecha": "Dec 12, 1212, 12:00:00 AM"
+            "fecha": "Nov 10, 2025, 12:00:00 AM"
+          },
+          {
+            "asistencia": false,
+            "fecha": "Nov 11, 2025, 12:00:00 AM"
+          },
+          {
+            "asistencia": true,
+            "fecha": "Nov 12, 2025, 12:00:00 AM"
+          }
+        ]
+      },
+      {
+        "materia": "quimica",
+        "notas": [
+          4.0
+        ],
+        "asistencia": [
+          {
+            "asistencia": false,
+            "fecha": "Nov 12, 2025, 12:00:00 AM"
           }
         ]
       }
     ],
     "participacion": 2,
-    "comentarios": "2",
+    "comentarios": "nunca se ve",
     "creditos": 0
   }
 ]
