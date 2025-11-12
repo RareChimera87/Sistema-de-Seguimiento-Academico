@@ -16,6 +16,44 @@ public class Estudiante extends TipoEstudiante{
 
     }
 
+
+
+    public List<TipoMateria> getMaterias() {
+        return materias;
+    }
+
+
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+// SETTERS
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
+    }
+
+    public void setMaterias(List<TipoMateria> materias) {
+        this.materias = materias;
+    }
+
+    public void setParticipacion(int participacion) {
+        this.participacion = participacion;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -84,4 +84,43 @@ public class ControlEstudiantes {
     public List<Estudiante> cargarEstudiantesDesdeJSON() {
         return GenerateJSON.leerEstudiantes(fileRoute);
     }
+    public Estudiante buscarEstudiantePorId(int id) {
+        List<Estudiante> estudiantes = GenerateJSON.leerEstudiantes(fileRoute);
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getId() == id) {
+                return estudiante;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Actualiza un estudiante existente en el JSON
+     */
+    public void actualizarEstudiante(Estudiante estudianteModificado) {
+        List<Estudiante> estudiantes = GenerateJSON.leerEstudiantes(fileRoute);
+
+        // Buscar y reemplazar el estudiante
+        for (int i = 0; i < estudiantes.size(); i++) {
+            if (estudiantes.get(i).getId() == estudianteModificado.getId()) {
+                estudiantes.set(i, estudianteModificado);
+                break;
+            }
+        }
+
+        // Guardar la lista actualizada
+        GenerateJSON.guardarListaCompleta(fileRoute, estudiantes);
+    }
+    public boolean eliminarEstudiante(int id) {
+        List<Estudiante> estudiantes = GenerateJSON.leerEstudiantes(fileRoute);
+
+        boolean eliminado = estudiantes.removeIf(estudiante -> estudiante.getId() == id);
+
+        if (eliminado) {
+            GenerateJSON.guardarListaCompleta(fileRoute, estudiantes);
+            System.out.println("Estudiante con ID " + id + " eliminado correctamente");
+        }
+
+        return eliminado;
+    }
 }

@@ -88,4 +88,22 @@ public class GenerateJSON {
 
         return estudiantes;
     }
+    public static void guardarListaCompleta(String fileRoute, List<Estudiante> estudiantes) {
+        try {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            File file = new File(fileRoute);
+
+            file.getParentFile().mkdirs();
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, false))) {
+                String json = gson.toJson(estudiantes);
+                bw.write(json);
+                System.out.println("Archivo JSON actualizado correctamente");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al guardar archivo JSON: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

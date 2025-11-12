@@ -94,7 +94,7 @@ public class MainMenu extends JFrame {
 
         btnModificar.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Abriendo modificación de estudiante...");
-            // Aquí abrirías la ventana de modificación
+            new ModificarEstudiante(control);
         });
 
         btnEliminar.addActionListener(e -> {
@@ -107,6 +107,7 @@ public class MainMenu extends JFrame {
             );
             if (confirmacion == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(this, "Abriendo eliminación de estudiante...");
+                new EliminarEstudiante(control);
             }
         });
 

@@ -29,10 +29,24 @@
             "fecha": "Nov 23, 2324, 12:00:00 AM"
           }
         ]
+      },
+      {
+        "materia": "otra materias",
+        "notas": [
+          1.0,
+          1.0,
+          2.0
+        ],
+        "asistencia": [
+          {
+            "asistencia": true,
+            "fecha": "Apr 23, 2008, 12:00:00 AM"
+          }
+        ]
       }
     ],
     "participacion": 5,
-    "comentarios": "s",
+    "comentarios": "sabermas",
     "creditos": 0
   },
   {
@@ -69,30 +83,6 @@
     ],
     "participacion": 2,
     "comentarios": "2",
-    "creditos": 0
-  },
-  {
-    "nombre": "alguien",
-    "id": 123231,
-    "grupo": 123123,
-    "materias": [
-      {
-        "materia": "sasa",
-        "notas": [
-          1.0,
-          2.0,
-          3.0
-        ],
-        "asistencia": [
-          {
-            "asistencia": false,
-            "fecha": "Apr 23, 2007, 12:00:00 AM"
-          }
-        ]
-      }
-    ],
-    "participacion": 2,
-    "comentarios": "sasaas",
     "creditos": 0
   }
 ]
