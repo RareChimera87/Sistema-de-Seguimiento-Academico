@@ -1,0 +1,23 @@
+============================================================
+REPORTE DE ESTADÍSTICAS ACADÉMICAS
+============================================================
+
+Fecha de generación: 12/11/2025 00:46:34
+Total de estudiantes: 2
+
+------------------------------------------------------------
+ESTADÍSTICAS GENERALES
+------------------------------------------------------------
+Promedio general: 2.98
+Promedio más alto: 3.25
+Promedio más bajo: 2.71
+Desviación estándar: 0.38
+
+Asistencia promedio: 33.34%
+Participación promedio: 3.50
+
+------------------------------------------------------------
+ESTUDIANTES POR GRUPO
+------------------------------------------------------------
+Grupo 1: 1 estudiantes (Promedio: 2.71)
+Grupo 2: 1 estudiantes (Promedio: 3.25)
