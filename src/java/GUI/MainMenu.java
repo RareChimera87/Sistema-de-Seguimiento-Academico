@@ -14,27 +14,27 @@ public class MainMenu extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Título principal
+
         JLabel titulo = new JLabel("Sistema de Gestión de Estudiantes", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 28));
         titulo.setBorder(BorderFactory.createEmptyBorder(30, 0, 20, 0));
         add(titulo, BorderLayout.NORTH);
 
-        // Panel central con el menú
+
         JPanel panelCentral = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.insets = new Insets(10, 0, 10, 0);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Etiqueta de instrucción
+
         JLabel lblInstruccion = new JLabel("¿Qué desea hacer?", SwingConstants.CENTER);
         lblInstruccion.setFont(new Font("Arial", Font.PLAIN, 18));
         gbc.gridy = 0;
         gbc.insets = new Insets(0, 0, 30, 0);
         panelCentral.add(lblInstruccion, gbc);
 
-        // Botones del menú
+
         Dimension tamañoBoton = new Dimension(300, 45);
         gbc.insets = new Insets(8, 0, 8, 0);
 
@@ -68,7 +68,7 @@ public class MainMenu extends JFrame {
 
         add(panelCentral, BorderLayout.CENTER);
 
-        // Action Listeners
+
         btnRegistrar.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Abriendo formulario de registro...");
             new RegistrarEstudiante(control);

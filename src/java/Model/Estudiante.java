@@ -28,7 +28,6 @@ public class Estudiante extends TipoEstudiante{
         return comentarios;
     }
 
-// SETTERS
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

@@ -18,23 +18,23 @@ public class ListaEstudiantesVentana extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Título
+
         JLabel titulo = new JLabel("Estudiantes Registrados", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 24));
         titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titulo, BorderLayout.NORTH);
 
-        // Crear modelo de lista
+
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
         cargarNombresDesdeJSON(modeloLista);
 
-        // Crear JList con los nombres
+
         JList<String> listaNombres = new JList<>(modeloLista);
         listaNombres.setFont(new Font("Arial", Font.PLAIN, 16));
         listaNombres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaNombres.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Scroll pane para la lista
+
         JScrollPane scrollPane = new JScrollPane(listaNombres);
         scrollPane.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createEtchedBorder(),
@@ -42,7 +42,7 @@ public class ListaEstudiantesVentana extends JFrame {
         ));
         add(scrollPane, BorderLayout.CENTER);
 
-        // Panel inferior con botón
+
         JPanel panelInferior = new JPanel();
         panelInferior.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 

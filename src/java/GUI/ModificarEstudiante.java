@@ -31,13 +31,13 @@ public class ModificarEstudiante extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Título
+
         JLabel titulo = new JLabel("Modificar Estudiante", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 24));
         titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titulo, BorderLayout.NORTH);
 
-        // Panel de búsqueda
+
         JPanel panelBusqueda = new JPanel();
         panelBusqueda.setBorder(BorderFactory.createTitledBorder("Buscar Estudiante"));
         panelBusqueda.add(new JLabel("ID del Estudiante:"));
@@ -48,13 +48,13 @@ public class ModificarEstudiante extends JFrame {
         btnBuscar.addActionListener(e -> buscarEstudiante(txtBuscarId.getText().trim()));
         panelBusqueda.add(btnBuscar);
 
-        // Panel central con formulario
+
         JPanel panelFormulario = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Nombre
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelFormulario.add(new JLabel("Nombre:"), gbc);
@@ -64,7 +64,7 @@ public class ModificarEstudiante extends JFrame {
         txtNombre.setEnabled(false);
         panelFormulario.add(txtNombre, gbc);
 
-        // ID
+
         gbc.gridx = 0;
         gbc.gridy = 1;
         panelFormulario.add(new JLabel("ID:"), gbc);
@@ -74,7 +74,7 @@ public class ModificarEstudiante extends JFrame {
         txtId.setEnabled(false);
         panelFormulario.add(txtId, gbc);
 
-        // Grupo
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panelFormulario.add(new JLabel("Grupo:"), gbc);
@@ -84,7 +84,7 @@ public class ModificarEstudiante extends JFrame {
         txtGrupo.setEnabled(false);
         panelFormulario.add(txtGrupo, gbc);
 
-        // Participación
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panelFormulario.add(new JLabel("Participación:"), gbc);
@@ -94,7 +94,7 @@ public class ModificarEstudiante extends JFrame {
         txtParticipacion.setEnabled(false);
         panelFormulario.add(txtParticipacion, gbc);
 
-        // Comentarios
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.NORTH;
@@ -108,7 +108,7 @@ public class ModificarEstudiante extends JFrame {
         JScrollPane scrollComentarios = new JScrollPane(txtComentarios);
         panelFormulario.add(scrollComentarios, gbc);
 
-        // Materias
+
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -128,7 +128,7 @@ public class ModificarEstudiante extends JFrame {
         panelBotonesMaterias.add(btnEliminarMateria);
         panelFormulario.add(panelBotonesMaterias, gbc);
 
-        // Lista de materias
+
         gbc.gridx = 1;
         gbc.gridy = 6;
         gbc.fill = GridBagConstraints.BOTH;
@@ -139,13 +139,13 @@ public class ModificarEstudiante extends JFrame {
         scrollMaterias.setPreferredSize(new Dimension(300, 100));
         panelFormulario.add(scrollMaterias, gbc);
 
-        // Panel principal que contiene búsqueda y formulario
+
         JPanel panelPrincipal = new JPanel(new BorderLayout());
         panelPrincipal.add(panelBusqueda, BorderLayout.NORTH);
         panelPrincipal.add(panelFormulario, BorderLayout.CENTER);
         add(panelPrincipal, BorderLayout.CENTER);
 
-        // Panel inferior con botones
+
         JPanel panelBotones = new JPanel();
         panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
@@ -178,18 +178,18 @@ public class ModificarEstudiante extends JFrame {
                 return;
             }
 
-            // Cargar datos en los campos
+
             txtNombre.setText(estudianteActual.getNombre());
             txtId.setText(String.valueOf(estudianteActual.getId()));
             txtGrupo.setText(String.valueOf(estudianteActual.getGrupo()));
             txtParticipacion.setText(String.valueOf(estudianteActual.getParticipacion()));
             txtComentarios.setText(estudianteActual.getComentarios());
 
-            // Cargar materias
+
             materiasModificadas = new ArrayList<>(estudianteActual.getMaterias());
             actualizarListaMaterias();
 
-            // Habilitar campos para edición
+
             habilitarCampos(true);
 
             JOptionPane.showMessageDialog(this,
@@ -235,7 +235,7 @@ public class ModificarEstudiante extends JFrame {
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Nombre de la materia
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelMateria.add(new JLabel("Nombre de la Materia:"), gbc);
@@ -244,7 +244,7 @@ public class ModificarEstudiante extends JFrame {
         JTextField txtNombreMateria = new JTextField(15);
         panelMateria.add(txtNombreMateria, gbc);
 
-        // Notas
+
         gbc.gridx = 0;
         gbc.gridy = 1;
         panelMateria.add(new JLabel("Notas (separadas por coma):"), gbc);
@@ -253,7 +253,7 @@ public class ModificarEstudiante extends JFrame {
         JTextField txtNotas = new JTextField(15);
         panelMateria.add(txtNotas, gbc);
 
-        // Asistencias
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panelMateria.add(new JLabel("Asistencias:"), gbc);
@@ -262,7 +262,7 @@ public class ModificarEstudiante extends JFrame {
         JButton btnAgregarAsistencia = new JButton("Agregar Asistencia");
         panelMateria.add(btnAgregarAsistencia, gbc);
 
-        // Lista de asistencias
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2;
@@ -323,7 +323,7 @@ public class ModificarEstudiante extends JFrame {
 
         dialogMateria.add(panelMateria, BorderLayout.CENTER);
 
-        // Botones del diálogo
+
         JPanel panelBotonesMateria = new JPanel();
         JButton btnAceptar = new JButton("Aceptar");
         btnAceptar.addActionListener(e -> {
@@ -399,14 +399,14 @@ public class ModificarEstudiante extends JFrame {
                 return;
             }
 
-            // Actualizar estudiante
+
             estudianteActual.setNombre(nombre);
             estudianteActual.setGrupo(grupo);
             estudianteActual.setParticipacion(participacion);
             estudianteActual.setComentarios(comentarios);
             estudianteActual.setMaterias(materiasModificadas);
 
-            // Guardar cambios en el JSON
+
             control.actualizarEstudiante(estudianteActual);
 
             JOptionPane.showMessageDialog(this,

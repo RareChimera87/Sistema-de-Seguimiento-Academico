@@ -27,19 +27,19 @@ public class RegistrarEstudiante extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Título
+
         JLabel titulo = new JLabel("Registrar Nuevo Estudiante", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 24));
         titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titulo, BorderLayout.NORTH);
 
-        // Panel central con formulario
+
         JPanel panelFormulario = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Nombre
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelFormulario.add(new JLabel("Nombre:"), gbc);
@@ -48,7 +48,7 @@ public class RegistrarEstudiante extends JFrame {
         txtNombre = new JTextField(20);
         panelFormulario.add(txtNombre, gbc);
 
-        // ID
+
         gbc.gridx = 0;
         gbc.gridy = 1;
         panelFormulario.add(new JLabel("ID:"), gbc);
@@ -57,7 +57,7 @@ public class RegistrarEstudiante extends JFrame {
         txtId = new JTextField(20);
         panelFormulario.add(txtId, gbc);
 
-        // Grupo
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panelFormulario.add(new JLabel("Grupo:"), gbc);
@@ -66,7 +66,7 @@ public class RegistrarEstudiante extends JFrame {
         txtGrupo = new JTextField(20);
         panelFormulario.add(txtGrupo, gbc);
 
-        // Participación
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panelFormulario.add(new JLabel("Participación:"), gbc);
@@ -75,7 +75,7 @@ public class RegistrarEstudiante extends JFrame {
         txtParticipacion = new JTextField(20);
         panelFormulario.add(txtParticipacion, gbc);
 
-        // Comentarios
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.NORTH;
@@ -88,7 +88,7 @@ public class RegistrarEstudiante extends JFrame {
         JScrollPane scrollComentarios = new JScrollPane(txtComentarios);
         panelFormulario.add(scrollComentarios, gbc);
 
-        // Materias
+
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -100,7 +100,7 @@ public class RegistrarEstudiante extends JFrame {
         btnAgregarMateria.addActionListener(e -> agregarMateria());
         panelFormulario.add(btnAgregarMateria, gbc);
 
-        // Lista de materias agregadas
+
         gbc.gridx = 1;
         gbc.gridy = 6;
         gbc.fill = GridBagConstraints.BOTH;
@@ -113,7 +113,7 @@ public class RegistrarEstudiante extends JFrame {
 
         add(panelFormulario, BorderLayout.CENTER);
 
-        // Panel inferior con botones
+
         JPanel panelBotones = new JPanel();
         panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
@@ -143,7 +143,7 @@ public class RegistrarEstudiante extends JFrame {
         gbc.insets = new Insets(5, 10, 5, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Nombre de la materia
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         panelMateria.add(new JLabel("Nombre de la Materia:"), gbc);
@@ -152,7 +152,7 @@ public class RegistrarEstudiante extends JFrame {
         JTextField txtNombreMateria = new JTextField(15);
         panelMateria.add(txtNombreMateria, gbc);
 
-        // Notas
+
         gbc.gridx = 0;
         gbc.gridy = 1;
         panelMateria.add(new JLabel("Notas (separadas por coma):"), gbc);
@@ -161,7 +161,7 @@ public class RegistrarEstudiante extends JFrame {
         JTextField txtNotas = new JTextField(15);
         panelMateria.add(txtNotas, gbc);
 
-        // Asistencias
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panelMateria.add(new JLabel("Asistencias:"), gbc);
@@ -170,7 +170,7 @@ public class RegistrarEstudiante extends JFrame {
         JButton btnAgregarAsistencia = new JButton("Agregar Asistencia");
         panelMateria.add(btnAgregarAsistencia, gbc);
 
-        // Lista de asistencias
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2;
@@ -231,7 +231,7 @@ public class RegistrarEstudiante extends JFrame {
 
         dialogMateria.add(panelMateria, BorderLayout.CENTER);
 
-        // Botones del diálogo
+
         JPanel panelBotonesMateria = new JPanel();
         JButton btnAceptar = new JButton("Aceptar");
         btnAceptar.addActionListener(e -> {
@@ -243,7 +243,7 @@ public class RegistrarEstudiante extends JFrame {
                     return;
                 }
 
-                // Procesar notas
+
                 ArrayList<Double> notas = new ArrayList<>();
                 String[] notasArray = txtNotas.getText().split(",");
                 for (String nota : notasArray) {
@@ -252,7 +252,7 @@ public class RegistrarEstudiante extends JFrame {
                     }
                 }
 
-                // Registrar materia usando el método del control (igual que en el Main)
+
                 control.registrarMateria(nombreMateria, notas, asistencias);
 
                 modeloMaterias.addElement(nombreMateria + " - " + notas.size() + " notas, " + asistencias.size() + " asistencias");
@@ -294,7 +294,7 @@ public class RegistrarEstudiante extends JFrame {
                 return;
             }
 
-            // Igual que en el Main
+
             control.registrarEstudiante(nombre, id, materiasRegistradas, grupo, participacion, comentarios);
             control.generateJSONFile();
 

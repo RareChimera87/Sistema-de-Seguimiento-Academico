@@ -20,17 +20,16 @@ public class GenerarGraficasVentana extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Título
+
         JLabel titulo = new JLabel("Generador de Gráficas Estadísticas", SwingConstants.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 24));
         titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titulo, BorderLayout.NORTH);
 
-        // Panel central con información
+
         JPanel panelCentral = new JPanel(new BorderLayout(10, 10));
         panelCentral.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Panel de información
         JPanel panelInfo = new JPanel();
         panelInfo.setLayout(new BoxLayout(panelInfo, BoxLayout.Y_AXIS));
         panelInfo.setBorder(BorderFactory.createTitledBorder("Información"));
@@ -60,7 +59,7 @@ public class GenerarGraficasVentana extends JFrame {
         panelInfo.add(lblInfo6);
         panelInfo.add(lblInfo7);
 
-        // Consola de salida
+
         txtConsola = new JTextArea();
         txtConsola.setEditable(false);
         txtConsola.setFont(new Font("Monospaced", Font.PLAIN, 12));
@@ -69,7 +68,7 @@ public class GenerarGraficasVentana extends JFrame {
         JScrollPane scrollConsola = new JScrollPane(txtConsola);
         scrollConsola.setBorder(BorderFactory.createTitledBorder("Consola de Python"));
 
-        // Barra de progreso
+
         progressBar = new JProgressBar();
         progressBar.setStringPainted(true);
         progressBar.setString("Listo para generar gráficas");
@@ -80,7 +79,7 @@ public class GenerarGraficasVentana extends JFrame {
 
         add(panelCentral, BorderLayout.CENTER);
 
-        // Panel de botones
+
         JPanel panelBotones = new JPanel();
         panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
@@ -112,7 +111,7 @@ public class GenerarGraficasVentana extends JFrame {
     }
 
     private void generarGraficas() {
-        // Verificar que exista el archivo JSON
+
         if (!Files.exists(Paths.get("data/estudiantes.json"))) {
             JOptionPane.showMessageDialog(this,
                     "No se encontró el archivo data/estudiantes.json\n" +
@@ -122,36 +121,36 @@ public class GenerarGraficasVentana extends JFrame {
             return;
         }
 
-        // Deshabilitar botón mientras se ejecuta
+
         btnGenerar.setEnabled(false);
         btnVerGraficas.setEnabled(false);
         txtConsola.setText("");
         progressBar.setValue(0);
         progressBar.setString("Generando gráficas...");
 
-        // Ejecutar en un hilo separado para no bloquear la UI
+
         SwingWorker<Boolean, String> worker = new SwingWorker<>() {
             @Override
             protected Boolean doInBackground() throws Exception {
                 try {
-                    // Determinar el comando de Python según el sistema operativo
+
                     String pythonCmd = System.getProperty("os.name").toLowerCase().contains("win")
                             ? "python" : "python3";
 
-                    // Ruta al script de Python
+
                     String scriptPath = "src/python/generar_graficas.py";
 
                     publish("Iniciando generación de gráficas...\n");
                     publish("Ejecutando: " + pythonCmd + " " + scriptPath + "\n");
                     publish("=".repeat(60) + "\n");
 
-                    // Crear el proceso
+
                     ProcessBuilder processBuilder = new ProcessBuilder(pythonCmd, scriptPath);
                     processBuilder.redirectErrorStream(true);
 
                     Process process = processBuilder.start();
 
-                    // Leer la salida del proceso
+
                     BufferedReader reader = new BufferedReader(
                             new InputStreamReader(process.getInputStream()));
 
@@ -160,7 +159,7 @@ public class GenerarGraficasVentana extends JFrame {
                     while ((line = reader.readLine()) != null) {
                         publish(line + "\n");
 
-                        // Actualizar barra de progreso
+
                         if (line.contains("Gráfica 1")) progress = 25;
                         else if (line.contains("Gráfica 2")) progress = 50;
                         else if (line.contains("Gráfica 3")) progress = 75;
@@ -256,10 +255,10 @@ public class GenerarGraficasVentana extends JFrame {
             setLocationRelativeTo(GenerarGraficasVentana.this);
             setLayout(new BorderLayout());
 
-            // Panel con pestañas para cada gráfica
+
             JTabbedPane tabbedPane = new JTabbedPane();
 
-            // Agregar cada gráfica como una pestaña
+
             agregarGrafica(tabbedPane, "Promedio por Estudiante", "data/graficas/grafica1_promedios.png");
             agregarGrafica(tabbedPane, "Participación vs Promedio", "data/graficas/grafica2_participacion.png");
             agregarGrafica(tabbedPane, "Heatmap de Asistencias", "data/graficas/grafica3_heatmap_asistencias.png");
@@ -267,7 +266,7 @@ public class GenerarGraficasVentana extends JFrame {
 
             add(tabbedPane, BorderLayout.CENTER);
 
-            // Botón cerrar
+
             JButton btnCerrarVisor = new JButton("Cerrar");
             btnCerrarVisor.addActionListener(e -> dispose());
             JPanel panelBoton = new JPanel();
@@ -282,7 +281,7 @@ public class GenerarGraficasVentana extends JFrame {
                 if (Files.exists(Paths.get(rutaImagen))) {
                     ImageIcon icon = new ImageIcon(rutaImagen);
 
-                    // Escalar imagen si es muy grande
+
                     Image img = icon.getImage();
                     Image scaledImg = img.getScaledInstance(1100, 700, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(scaledImg);

@@ -39,7 +39,7 @@ public class ControlEstudiantes {
         } else {
             System.out.println("=== Lista de Estudiantes ===");
             for (Estudiante e : estudiantes) {
-                System.out.println(e); // Esto llamará al toString()
+                System.out.println(e);
             }
         }
     }
@@ -69,16 +69,16 @@ public class ControlEstudiantes {
 
     public void generateJSONFile(){
 
-        // Obtener los estudiantes registrados en esta sesión
+
         List<Estudiante> estudiantesNuevos = registro.getEstudiantes();
 
-        // Guardar en el archivo (se agregará a los existentes)
+
         GenerateJSON.generateFile(fileRoute, estudiantesNuevos);
 
-        // Limpiar el registro temporal después de guardar
+
         registro.getEstudiantes().clear();
 
-        // Limpiar las materias temporales
+
         materi.getMaterias().clear();
     }
     public List<Estudiante> cargarEstudiantesDesdeJSON() {
@@ -94,13 +94,10 @@ public class ControlEstudiantes {
         return null;
     }
 
-    /**
-     * Actualiza un estudiante existente en el JSON
-     */
+
     public void actualizarEstudiante(Estudiante estudianteModificado) {
         List<Estudiante> estudiantes = GenerateJSON.leerEstudiantes(fileRoute);
 
-        // Buscar y reemplazar el estudiante
         for (int i = 0; i < estudiantes.size(); i++) {
             if (estudiantes.get(i).getId() == estudianteModificado.getId()) {
                 estudiantes.set(i, estudianteModificado);
@@ -108,7 +105,6 @@ public class ControlEstudiantes {
             }
         }
 
-        // Guardar la lista actualizada
         GenerateJSON.guardarListaCompleta(fileRoute, estudiantes);
     }
     public boolean eliminarEstudiante(int id) {
