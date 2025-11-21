@@ -245,7 +245,7 @@ public class GenerarGraficasVentana extends JFrame {
         new VisualizadorGraficas();
     }
 
-    // Clase interna para visualizar las gráficas
+    
     private class VisualizadorGraficas extends JFrame {
 
         public VisualizadorGraficas() {
@@ -300,4 +300,5 @@ public class GenerarGraficasVentana extends JFrame {
             }
         }
     }
+
 }
