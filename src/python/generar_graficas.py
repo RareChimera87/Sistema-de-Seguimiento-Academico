@@ -6,6 +6,8 @@ import numpy as np
 import os
 from datetime import datetime
 from pathlib import Path
+import qrcode
+
 
 # Configuración de estilo
 plt.style.use('seaborn-v0_8-darkgrid')
@@ -282,6 +284,75 @@ def generar_reporte_texto(datos, carpeta):
     
     print(f" Reporte estadístico guardado: {ruta}")
 
+
+def generar_qr_certificacion(datos, carpeta):
+        """Genera un código QR con la información del proyecto y resultados"""
+        print("\n[QR] Generando codigo QR de certificacion...")
+        
+        df = pd.DataFrame(datos)
+        
+        # Calcular estadísticas principales
+        promedio_general = df['promedio'].mean()
+        mejor_estudiante = df.loc[df['promedio'].idxmax(), 'nombre']
+        promedio_asistencia = df['asistencia'].mean()
+        total_estudiantes = len(df)
+        
+        # Crear contenido del QR
+        contenido_qr = f"""
+            ========================================
+            SISTEMA DE GESTION ACADEMICA
+            ========================================
+
+            GRUPO: Proyecto Educacion y Aprendizaje
+            PROYECTO: Sistema de Registro de Estudiantes
+            FECHA: {datetime.now().strftime('%d/%m/%Y %H:%M')}
+
+            RESULTADOS PRINCIPALES:
+            - Total Estudiantes: {total_estudiantes}
+            - Promedio General: {promedio_general:.2f}
+            - Mejor Estudiante: {mejor_estudiante}
+            - Asistencia Promedio: {promedio_asistencia:.1f}%
+
+            Desarrollado con:
+            - Java (Swing GUI)
+            - Python (Analisis de Datos)
+            - Matplotlib & Seaborn
+
+            ========================================
+            Sistema de Gestion y Registro
+            de Estudiantes - 2025
+            ========================================
+                """.strip()
+        
+        # Crear código QR
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        
+        qr.add_data(contenido_qr)
+        qr.make(fit=True)
+        
+        # Crear imagen del QR
+        img = qr.make_image(fill_color="black", back_color="white")
+        
+        # Guardar QR
+        ruta_qr = os.path.join(carpeta, 'qr_certificacion_proyecto.png')
+        img.save(ruta_qr)
+        
+        print(f"[OK] Codigo QR generado: {ruta_qr}")
+        
+        # También guardar el contenido como texto
+        ruta_txt = os.path.join(carpeta, 'qr_certificacion_contenido.txt')
+        with open(ruta_txt, 'w', encoding='utf-8') as f:
+            f.write(contenido_qr)
+        
+        print(f"[OK] Contenido del QR guardado: {ruta_txt}")
+        
+        return ruta_qr
+
 def main():
     """Función principal"""
     print("\n" + "=" * 60)
@@ -309,6 +380,8 @@ def main():
     
     # Generar reporte
     generar_reporte_texto(datos, carpeta)
+
+    generar_qr_certificacion(datos, carpeta)
     
     print("\n" + "=" * 60)
     print(" PROCESO COMPLETADO EXITOSAMENTE")

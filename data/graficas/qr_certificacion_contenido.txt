@@ -1,0 +1,23 @@
+========================================
+            SISTEMA DE GESTION ACADEMICA
+            ========================================
+
+            GRUPO: Proyecto Educacion y Aprendizaje
+            PROYECTO: Sistema de Registro de Estudiantes
+            FECHA: 21/11/2025 13:43
+
+            RESULTADOS PRINCIPALES:
+            - Total Estudiantes: 2
+            - Promedio General: 3.38
+            - Mejor Estudiante: Julian
+            - Asistencia Promedio: 62.5%
+
+            Desarrollado con:
+            - Java (Swing GUI)
+            - Python (Analisis de Datos)
+            - Matplotlib & Seaborn
+
+            ========================================
+            Sistema de Gestion y Registro
+            de Estudiantes - 2025
+            ========================================
