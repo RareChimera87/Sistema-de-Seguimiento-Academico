@@ -56,7 +56,8 @@ def procesar_datos(estudiantes):
         
         porc_asistencia = round((asistencias_positivas / total_asistencias * 100), 2) if total_asistencias > 0 else 0
         
-        # Preparar datos por materia para el heatmap
+        
+        
         materias_dict = {}
         for materia in est['materias']:
             nombre_materia = materia['materia']
@@ -113,7 +114,7 @@ def grafica1_promedio_estudiantes(datos, carpeta):
     plt.ylim(0, 5.5)
     plt.grid(axis='y', alpha=0.3, linestyle='--')
     
-    # Línea de referencia (nota mínima aprobatoria)
+    
     plt.axhline(y=3.0, color='red', linestyle='--', linewidth=2, label='Nota Mínima (3.0)', alpha=0.7)
     plt.legend(fontsize=11)
     
@@ -132,7 +133,7 @@ def grafica2_participacion_promedio(datos, carpeta):
     
     plt.figure(figsize=(12, 8))
     
-    # Scatter plot con colores por grupo
+   
     grupos = df['grupo'].unique()
     colores = plt.cm.Set2(np.linspace(0, 1, len(grupos)))
     
@@ -224,7 +225,7 @@ def grafica4_distribucion_grupos(datos, carpeta):
     
     plt.figure(figsize=(12, 8))
     
-    # Violin plot
+   
     ax = sns.violinplot(data=df, x='grupo', y='promedio', palette='muted', 
                        inner='box', linewidth=1.5)
     
@@ -297,7 +298,7 @@ def generar_qr_certificacion(datos, carpeta):
         promedio_asistencia = df['asistencia'].mean()
         total_estudiantes = len(df)
         
-        # Crear contenido del QR
+       
         contenido_qr = f"""
             ========================================
             SISTEMA DE GESTION ACADEMICA
@@ -396,4 +397,5 @@ def main():
     print()
 
 if __name__ == "__main__":
+
     main()
